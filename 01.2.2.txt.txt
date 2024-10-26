@@ -1,0 +1,9 @@
+Mathematical Analysis
+Outer Loop: Runs n times 
+Inner Loop: Runs n times for each iteration of the outer loop.
+
+Total Comparisons:
+         Total comparisons=n+n+n+…+n (n times)=n×n=n^2
+ 
+Time Complexity:
+         Since the total number of operations is proportional to n^2 , the worst-case time complexity is 𝑂(𝑛^2)

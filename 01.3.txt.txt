@@ -1,0 +1,36 @@
+
+procedure BubbleSortOptimized(var arr: array of Integer; n: Integer);
+var
+  i, j, temp: Integer;
+  swapped: Boolean;
+begin
+  for i = 0 to n - 1 do
+  begin
+    swapped = False; 
+    for j = 0 to n - i - 2 do 
+    begin
+      if arr[j] > arr[j + 1] then
+      begin
+        temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1]= temp;
+        swapped = True; 
+      end;
+    end;
+      Break;
+  end;
+end;
+
+var
+  arr: array[0..12] of Integer = (5, 3, 8, 4, 25, 3, 8, 4, 25, 3, 8, 4, 2);
+  n, i: Integer;
+begin
+  n = Length(arr);
+  BubbleSortOptimized(arr, n);
+
+ 
+  for i = 0 to n - 1 do
+    Write(arr[i], ' ');
+
+  WriteLn; 
+end.

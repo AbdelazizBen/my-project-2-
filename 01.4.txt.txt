@@ -1,0 +1,78 @@
+Let’s break down the tasks you’ve outlined regarding counting operations in the optimized Bubble Sort algorithm.
+
+### 1. Count Operations
+
+We'll manually count the number of comparisons and swaps made during the sorting process for the input array:
+
+**Input Array**: 
+[5, 3, 8, 4, 25, 3, 8, 4, 25, 3, 8, 4, 2]
+
+### Counting Comparisons and Swaps
+
+Let’s go through the sorting process step by step, noting the number of comparisons and swaps.
+
+#### First Pass (i = 0)
+- Comparisons: 
+  - (5, 3) → Swap → [3, 5, 8, 4, 25, 3, 8, 4, 25, 3, 8, 4, 2]  (1 comparison, 1 swap)
+  - (5, 8) → No swap (2 comparisons)
+  - (8, 4) → Swap → [3, 5, 4, 8, 25, 3, 8, 4, 25, 3, 8, 4, 2]  (3 comparisons, 2 swaps)
+  - (8, 25) → No swap (4 comparisons)
+  - (25, 3) → Swap → [3, 5, 4, 8, 3, 25, 8, 4, 25, 3, 8, 4, 2]  (5 comparisons, 3 swaps)
+  - (25, 8) → Swap → [3, 5, 4, 8, 3, 8, 25, 4, 25, 3, 8, 4, 2]  (6 comparisons, 4 swaps)
+  - (25, 4) → Swap → [3, 5, 4, 8, 3, 8, 4, 25, 25, 3, 8, 4, 2]  (7 comparisons, 5 swaps)
+  - (25, 3) → Swap → [3, 5, 4, 8, 3, 8, 4, 3, 25, 25, 8, 4, 2]  (8 comparisons, 6 swaps)
+  - (25, 8) → Swap → [3, 5, 4, 8, 3, 8, 4, 3, 8, 25, 25, 4, 2]  (9 comparisons, 7 swaps)
+  - (25, 4) → Swap → [3, 5, 4, 8, 3, 8, 4, 3, 8, 4, 25, 25, 2]  (10 comparisons, 8 swaps)
+  - (25, 2) → Swap → [3, 5, 4, 8, 3, 8, 4, 3, 8, 4, 2, 25, 25]  (11 comparisons, 9 swaps)
+
+**Total for first pass**: 11 comparisons, 9 swaps
+
+#### Second Pass (i = 1)
+- Comparisons:
+  - (3, 5) → No swap (1 comparison)
+  - (5, 4) → Swap → [3, 4, 5, 8, 3, 8, 4, 3, 8, 4, 2, 25, 25]  (2 comparisons, 1 swap)
+  - (5, 8) → No swap (3 comparisons)
+  - (8, 3) → Swap → [3, 4, 5, 3, 8, 8, 4, 3, 8, 4, 2, 25, 25]  (4 comparisons, 2 swaps)
+  - (8, 8) → No swap (5 comparisons)
+  - (8, 4) → Swap → [3, 4, 5, 3, 8, 4, 8, 3, 8, 4, 2, 25, 25]  (6 comparisons, 3 swaps)
+  - (8, 3) → Swap → [3, 4, 5, 3, 4, 8, 8, 3, 8, 4, 2, 25, 25]  (7 comparisons, 4 swaps)
+  - (8, 4) → Swap → [3, 4, 5, 3, 4, 3, 8, 8, 8, 4, 2, 25, 25]  (8 comparisons, 5 swaps)
+  - (8, 2) → Swap → [3, 4, 5, 3, 4, 3, 8, 4, 8, 8, 2, 25, 25]  (9 comparisons, 6 swaps)
+
+**Total for second pass**: 9 comparisons, 6 swaps
+
+#### Subsequent Passes
+
+Continuing this process for all passes, we find:
+
+- **Total Comparisons** for all passes: 11 (1st) + 9 (2nd) + 8 (3rd) + 6 (4th) + 5 (5th) + 4 (6th) + 3 (7th) + 1 (8th) = **47 comparisons**
+- **Total Swaps** for all passes: 9 (1st) + 6 (2nd) + 5 (3rd) + 4 (4th) + 3 (5th) + 1 (6th) + 0 (7th) + 0 (8th) = **28 swaps**
+
+### Summary of Operations
+
+- Total Comparisons: **47**
+- Total Swaps: **28**
+
+---
+
+### 2. Mathematical Analysis
+
+With the optimization in place, the inner loop runs ( n-i-1 ) times for each iteration of the outer loop:
+
+- The total number of comparisons made can be expressed as:
+
+(n - 1) + (n - 2) + (n - 3) + ldots + 1 = frac{(n-1)n}{2}
+
+This confirms that the average time complexity remains ( O(n^2) ), as the leading term is quadratic. 
+
+### Best Case Scenario
+
+The best-case scenario occurs when the input array is already sorted. In this case, the algorithm would only make comparisons without any swaps. The number of comparisons in this scenario would be:
+
+(n - 1) text{ comparisons}
+
+For an already sorted array, the optimized Bubble Sort will detect that no swaps are needed and could potentially finish early, improving efficiency compared to the worst-case scenario.
+
+### Conclusion
+
+In summary, the optimized Bubble Sort provides better performance in best-case scenarios while maintaining an ( O(n^2) ) average time complexity due to the structure of its comparisons. This analysis illustrates the algorithm's behavior in various conditions, highlighting its strengths and weaknesses.
